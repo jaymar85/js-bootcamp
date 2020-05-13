@@ -13,22 +13,28 @@ const notes = [
   },
 ];
 
-// console.log(notes.pop())
-// notes.push('My new note')
+const findNote = function (notes, noteTitle) {
+  return notes.find(function (note, index) {
+    return note.title.toLowerCase() === noteTitle.toLowerCase();
+  });
+};
 
-// console.log(notes.shift())
-// notes.unshift('My first note')
+const findNotes = function (notes, query) {
+  return notes.filter(function (note, index) {
+    const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase());
+    const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase());
+    return isTitleMatch || isBodyMatch;
+  });
+};
 
-// notes.splice(1, 1, 'This is the new second note')
+console.log(findNotes(notes, "eating"));
 
-notes[2] = "This is now the new note 3";
+// const findNote = function (notes, noteTitle) {
+//   const index = notes.findIndex(function (note, index) {
+//     return note.title.toLowerCase() === noteTitle.toLowerCase();
+//   });
+//   return notes[index];
+// };
 
-notes.forEach(function (item, index) {
-  console.log(index);
-  console.log(item);
-});
-
-console.log(notes.length);
-console.log(notes);
-
-console.log(notes.indexOf("note 2"));
+// const note = findNote(notes, "office modification");
+// console.log(note);

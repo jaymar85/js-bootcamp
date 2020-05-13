@@ -1,17 +1,46 @@
-const todos = ['walk dog', 'exercise', 'study js', 'fix car', 'laundry']
+const todos = [
+  {
+    text: "Order dog food",
+    complete: true,
+  },
+  {
+    text: "water plants",
+    complete: true,
+  },
+  {
+    text: "study javascript",
+    complete: false,
+  },
+  {
+    text: "buy food",
+    complete: true,
+  },
+  {
+    text: "eat dinner",
+    complete: false,
+  },
+  {
+    text: "Exercise",
+    complete: false,
+  },
+];
 
-todos.splice(2, 1)
-todos.push('Find a job')
-todos.shift()
+const deleteTodo = function (todos, todoText) {
+  const index = todos.findIndex(function (todo) {
+    return todo.text.toLowerCase() === todoText.toLowerCase();
+  });
+  if (index > -1) {
+    todos.splice(index, 1);
+  }
+};
 
-console.log(`You have ${todos.length} todos!`)
+// deleteTodo(todos, "!!buy food");
+// console.log(todos);
 
-todos.forEach(function (todo, index) {
-    const num = index + 1
-    console.log(`${num}. ${todo}`) 
-})
+const getThingsTodo = function (todos) {
+  return todos.filter(function (todo) {
+    return !todo.complete;
+  });
+};
 
-for (let count = 0; count < todos.length; count++) {
-    const num = count + 1
-    console.log(`${num}. ${todos[count]}`)
-}
+console.log(getThingsTodo(todos));
