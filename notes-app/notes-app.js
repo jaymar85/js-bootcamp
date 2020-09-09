@@ -34,13 +34,12 @@ document.querySelector('#create-note').addEventListener('click', function() {
     console.log('add a note')
 })
 
-document.querySelector('#remove-all').addEventListener('click', function() {
-    document.querySelectorAll('.note').forEach(function(note) {
-        note.remove()
-    })
-})
-
 document.querySelector('#search-text').addEventListener('input', function(e) {
     filters.searchText = e.target.value
     renderNotes(notes, filters)
+})
+
+document.querySelector('#for-fun').addEventListener('change', function(e) {
+    // checked is for checkboxes like value is for type=text
+    e.target.checked
 })
