@@ -18,7 +18,7 @@ const renderNotes = function(notes, filters) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
     })
 
-    // rerenders #notes after filter
+    // rerenders #notes after filter input used
     document.querySelector('#notes').innerHTML = ''
     
     filteredNotes.forEach(function(note) {
@@ -39,7 +39,10 @@ document.querySelector('#search-text').addEventListener('input', function(e) {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#for-fun').addEventListener('change', function(e) {
-    // checked is for checkboxes like value is for type=text
-    e.target.checked
+// document.querySelector('#filter-by').addEventListener('change', function(e) {
+//     console.log(e.target.value)
+// })
+
+document.querySelector('#filter-by').addEventListener('change', function (e) {
+    console.log(e.target.value)
 })
